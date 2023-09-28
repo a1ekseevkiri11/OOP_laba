@@ -6,6 +6,9 @@
 
 using namespace std;
 
+
+
+// 1 laba
 const double pi = 3.141592653589793;
 
 double randomPosition() {
@@ -67,8 +70,39 @@ static bool touchOnePoint(Circle circle1, Circle circle2) {
 	return false;
 }
 
+//2 laba
+
+//1
+class Horse {
+private:
+	string nickname;
+public:
+	Horse(string nickname = "Undefined") : nickname(nickname) {}
+
+	string getNickname() {
+		return nickname;
+	}
+};
+
+class Pegas : public Horse {
+public:
+	Pegas(string nickname) : Horse(nickname) {}
+	void flight() {
+		cout << "flight pegas: " << getNickname();
+	}
+};
+
+//2
+class Pet {
+private:
+	int weight, age;
+	char sex;
+public:
+	Pet(int weight, char sex, int age): weight(weight), age(age), sex(sex){}
+};
+
 int main() {
-	srand(time(NULL));
-	Circle circle1(1);
-	Circle circle2(2);
+	srand(time(NULL));//функция для разного рандома
+	Pegas pega1("loshadka");
+	pega1.flight();
 }
