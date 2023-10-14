@@ -114,35 +114,35 @@ public:
 };
 
 
-class Cat : public Pet {
-private:
-	string name;
-public:
-	Cat(int weight, char sex, int age, string name) : Pet(weight, sex, age), name(name) {}
-
-	string getName() {
-		return name;
-	}
-
-	void getInfo() {
-		cout << "cat" << " " << getName() << " " << getAge() << " " << getSex() << " " << getWeight();
-	}
-};
-
-class Dog : public Pet {
-private:
-	string name;
-public:
-	Dog(int weight, char sex, int age, string name) : Pet(weight, sex, age), name(name) {}
-
-	string getName() {
-		return name;
-	}
-
-	void getInfo() {
-		cout << "dog" << " " << getName() << " " << getAge() << " " << getSex() << " " << getWeight();
-	}
-};
+//class Cat : public Pet {
+//private:
+//	string name;
+//public:
+//	Cat(int weight, char sex, int age, string name) : Pet(weight, sex, age), name(name) {}
+//
+//	string getName() {
+//		return name;
+//	}
+//
+//	void getInfo() {
+//		cout << "cat" << " " << getName() << " " << getAge() << " " << getSex() << " " << getWeight();
+//	}
+//};
+//
+//class Dog : public Pet {
+//private:
+//	string name;
+//public:
+//	Dog(int weight, char sex, int age, string name) : Pet(weight, sex, age), name(name) {}
+//
+//	string getName() {
+//		return name;
+//	}
+//
+//	void getInfo() {
+//		cout << "dog" << " " << getName() << " " << getAge() << " " << getSex() << " " << getWeight();
+//	}
+//};
 
 
 //3
@@ -205,6 +205,7 @@ public:
 
 //3 laba
 //полиморфизм
+//1, 2
 class Cow {
 private:
 	string name;
@@ -225,15 +226,118 @@ public:
 	Whale(string name) : Cow(name) {}
 
 	virtual void sayMyName() {
-		cout << "I'm not a cow, I'm a whale -" << getName() << "\n";
+		cout << "I'm not a cow, I'm a whale - " << getName() << "\n";
 	}
 };
 
-int main() {
-	srand(time(NULL));//функция для разного рандома
 
-	Cow korova("Burenka");
-	Whale kit("Lui");
-	korova.sayMyName();
-	kit.sayMyName();
+//3
+class Bird {
+};
+
+class Lamp {
+};
+
+class Definition {
+public:
+	static void itIs(Bird _) {
+		cout << "Bird";
+	}
+	static void itIs(Lamp _) {
+		cout << "Lamp";
+	}
+	/*static void itIs(Cat _) {
+		cout << "Cat";
+	}
+	static void itIs(Dog _) {
+		cout << "Dog";
+	}*/
+};
+
+//4
+class Cat {
+private:
+	string name;
+public:
+	Cat(string name) : name(name) {}
+	
+	string getName() {
+		return name;
+	}
+
+	Cat getChild(string name) {
+		return Cat(name);
+	}
+
+	virtual void Voice() {
+		cout << "Miay\n";
+	}
+};
+
+class Dog : public Cat {
+public:
+	Dog(string name) : Cat(name) {}
+
+	Dog getChild(string name) {
+		return Dog(name);
+	}
+
+	virtual void Voice() {
+		cout << "Gav\n";
+	}
+};
+
+//перегрузка
+
+class Overload {
+public:
+	static void print(int a) {
+		cout << "int: " << a;
+	}
+
+	static void print(string a) {
+		cout << "string: " << a;
+	}
+
+	static void print(char a) {
+		cout << "char: " << a;
+	}
+
+	static void print(float a) {
+		cout << "float: " << a;
+	}
+
+	static void print(bool a) {
+		cout << "bool: " << a;
+	}
+
+	static int min(int a, int b) {
+		return a < b ? a : b;
+	}
+
+	static long min(long a, long b) {
+		return a < b ? a : b;
+	}
+
+	static double min(double a, double b) {
+		return a < b ? a : b;
+	}
+
+	static int max(int a, int b) {
+		return a > b ? a : b;
+	}
+
+	static long max(long a, long b) {
+		return a > b ? a : b;
+	}
+
+	static double max(double a, double b) {
+		return a > b ? a : b;
+	}
+};
+
+
+
+int main() {
+	cout << Overload::max(1, 10);
 }
