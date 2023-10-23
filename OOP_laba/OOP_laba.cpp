@@ -93,25 +93,25 @@ public:
 };
 
 //2, 4
-class Pet {
-private:
-	int weight, age;
-	char sex;
-public:
-	Pet(int weight, char sex, int age) : weight(weight), age(age), sex(sex) {}
-
-	int getWeight() {
-		return weight;
-	}
-
-	int getAge() {
-		return age;
-	}
-
-	char getSex() {
-		return sex;
-	}
-};
+//class Pet {
+//private:
+//	int weight, age;
+//	char sex;
+//public:
+//	Pet(int weight, char sex, int age) : weight(weight), age(age), sex(sex) {}
+//
+//	int getWeight() {
+//		return weight;
+//	}
+//
+//	int getAge() {
+//		return age;
+//	}
+//
+//	char getSex() {
+//		return sex;
+//	}
+//};
 
 
 //class Cat : public Pet {
@@ -274,18 +274,18 @@ public:
 	}
 };
 
-class Dog : public Cat {
-public:
-	Dog(string name) : Cat(name) {}
-
-	Dog getChild(string name) {
-		return Dog(name);
-	}
-
-	virtual void Voice() {
-		cout << "Gav\n";
-	}
-};
+//class Dog : public Cat {
+//public:
+//	Dog(string name) : Cat(name) {}
+//
+//	Dog getChild(string name) {
+//		return Dog(name);
+//	}
+//
+//	virtual void Voice() {
+//		cout << "Gav\n";
+//	}
+//};
 
 //перегрузка
 
@@ -336,7 +336,119 @@ public:
 	}
 };
 
+//4 laba
 
+class Pet {
+protected:
+	string name;
+	int age;
+	bool hungry;
+public:
+	virtual void voice() = 0;
+
+	void setName(string name) {
+		this->name = name;
+	}
+
+	string getName() {
+		return name;
+	}
+
+	void setAge(int age) {
+		this->age = age;
+	}
+
+	int getAge() {
+		return age;
+	}
+
+	void setAge(bool hungry) {
+		this->hungry = hungry;
+	}
+
+	bool getHungry() {
+		return hungry;
+	}
+};
+
+class Snake : public Pet {
+public:
+	Snake(string name, int age, bool hungry) {
+		setName(name);
+		setAge(age);
+		setAge(hungry);
+	}
+
+	virtual void voice() {
+		cout << "Shhhhh" << "\n";
+	}
+};
+
+class Dog : public Pet {
+public:
+	Dog(string name, int age, bool hungry) {
+		setName(name);
+		setAge(age);
+		setAge(hungry);
+	}
+
+	virtual void voice() {
+		cout << "Gav gav!" << "\n";
+	}
+};
+
+class PatrolDog : public Pet{
+public:
+	PatrolDog(string name, int age, bool hungry) {
+		setName(name);
+		setAge(age);
+		setAge(hungry);
+	}
+
+	virtual void voice() {
+		cout << "GAV GAV!" << "\n";
+	}
+};
+
+class Cat : public Pet {
+public:
+	Cat(string name, int age, bool hungry) {
+		setName(name);
+		setAge(age);
+		setAge(hungry);
+	}
+
+	virtual void voice() {
+		cout << "Mey" << "\n";
+	}
+};
+
+class Fish : public Pet {
+public:
+	Fish(string name, int age, bool hungry) {
+		setName(name);
+		setAge(age);
+		setAge(hungry);
+	}
+
+	virtual void voice() {
+		cout << "Fish can say?" << "\n";
+	}
+};
+
+
+
+//class Truck {
+//
+//};
+//
+//class Sedan {
+//
+//};
+//
+//class Pickup {
+//
+//};
 
 int main() {
 	cout << Overload::max(1, 10);
